@@ -7,10 +7,10 @@ const Schema = mongoose.Schema;
 
 // Article schema
 const articleSchema = new Schema({
-title: {},
-author: {},
-Summary: {},
-url: {}
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    summary: { type: String, required: true },
+    url: { type: String, required: true }
 });
 
 

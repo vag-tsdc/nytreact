@@ -1,23 +1,32 @@
 // Dependencies + Variables
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const port = process.env.PORT || 8080;
-
-// Import Routes + allow server access
 const routes = require("./routes");
 const app = express();
+const axios = require("axios");
+const PORT = process.env.PORT || 3030;
 
-// Content for the app pulled from PUBLIC in client/build
+
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// Serve up static assets
 app.use(express.static("client/build"));
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+// Add routes, both API and view
+app.use(routes);
 
-// Routes
-app.use("/", routes);
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
+  {
+    useMongoClient: true
+  }
+);
 
-app.listen(port, function () {
-  console.log("listening on port", port);
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`==> API Server now listening on PORT ${PORT}!`);
 });

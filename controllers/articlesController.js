@@ -16,12 +16,17 @@ const db = require("../models");
 
 //  Methods for Controller
 module.exports = {
-
+    findAll: function(req, res) {
+        db.Article
+            .findById(req.params.id)
+            .then(dbModel => res.JSON(dbModel))
+            .catch(err => res.status(422).json(err))
+    }
 };
 
 // Get/Post
 router.get("/", function (req, res) {
-
+    res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
 // Exports

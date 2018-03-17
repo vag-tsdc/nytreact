@@ -13,15 +13,22 @@
   },
   "author": "victoria ashly griggs",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
   "bugs": {
-    "url": "https://github.com/vag-tsdc/nytreact/issues"
+    "url": "https://github.com/vag-tsdc/nytreact/issues",
+    "email": "vag-tsdc@gmail.com"
   },
   "homepage": "https://github.com/vag-tsdc/nytreact#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.2",
-    "mongoose": "^5.0.7",
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "npm": "^5.7.1",
     "path": "^0.12.7"
   }
 }

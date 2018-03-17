@@ -19,5 +19,4 @@ const Article = mongoose.model("Article", articleSchema);
 
 
 // Export
-
 module.exports = Article;
